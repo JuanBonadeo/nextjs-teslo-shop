@@ -129,9 +129,3 @@ MIT License - Ver [LICENSE](LICENSE) para más detalles.
    ```markdown
    [![Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJuanBonadeo%2Fnextjs-teslo-shop)
    ```
-
-Este README está optimizado para:
-✅ Claridad técnica  
-✅ Fácil configuración  
-✅ Atractivo visual  
-✅ Compatibilidad con GitHub Markdown
