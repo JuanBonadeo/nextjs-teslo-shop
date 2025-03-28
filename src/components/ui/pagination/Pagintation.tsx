@@ -21,7 +21,7 @@ export const Pagintation = ({ totalPages }: Props) => {
     const pageString = searchParams.get('page') ?? 1
     const currentPage = isNaN( +pageString ) ? 1 : +pageString
 
-    if( currentPage < 1 || isNaN(+pageString)) return redirect( pathName)
+    if( currentPage < 1 || isNaN(+pageString)) return redirect( pathName )
 
     const allPages = generatePaginationNumbers(currentPage, totalPages);
 
@@ -44,28 +44,7 @@ export const Pagintation = ({ totalPages }: Props) => {
 
         params.set('page', pageNumber.toString())
         return `${pathName}?${params.toString()}`
-
-
-
     }
-
-
-
-
-
-    const onNextPage = () => {
-
-    }
-
-    const onPrevPage = () => {
-
-    }
-
-
-
-
-
-
 
 
     return (
@@ -73,8 +52,8 @@ export const Pagintation = ({ totalPages }: Props) => {
             <nav aria-label="Page navigation example">
 
                 <ul className="flex list-style-none">
-                
-                    <li className={`page-item `}>
+        
+                    <li className={`page-item `} >
                         <Link
                             className="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
                             href={createPageUrl(currentPage - 1)} >
@@ -99,11 +78,6 @@ export const Pagintation = ({ totalPages }: Props) => {
 
                         ))
                     }
-
-
-
-
-
 
 
                     <li className="page-item">

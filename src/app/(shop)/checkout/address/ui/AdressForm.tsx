@@ -43,7 +43,7 @@ export const AdressForm = () => {
     return (
 
         <form onSubmit={ handleSubmit( onSubmit ) }
-        className="grid grid-cols-1 gap-2 sm:gap-5 sm:grid-cols-2">
+        className="grid grid-cols-1 gap-2 sm:px-10 lg:gap-5 lg:grid-cols-2">
 
 
             <div className="flex flex-col mb-2">

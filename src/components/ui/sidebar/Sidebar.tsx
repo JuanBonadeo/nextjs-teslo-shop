@@ -7,7 +7,7 @@ import { IoCloseOutline, IoLogInOutline, IoLogOutOutline, IoPeopleOutline, IoPer
 import { useUIStore } from '@/store';
 import { logout } from '@/actions/auth/logout';
 import { useSession } from 'next-auth/react';
-import { redirect } from 'next/navigation';
+
 
 
 export const Sidebar = () => {
@@ -15,6 +15,8 @@ export const Sidebar = () => {
   const isSideMenuOpen = useUIStore(state => state.isSideMenuOpen);
   const closeMenu = useUIStore(state => state.closeSideMenu);
 
+  // para sacar la data en use client se usa el hook useSession
+  
   const { data: session } = useSession()
 
   const isAuthenticated = !!session?.user
@@ -51,14 +53,14 @@ export const Sidebar = () => {
 
       {/* Sidemenu */}
       <nav
-        className={
-          clsx(
-            "fixed p-5 right-0 top-0 w-[500px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300",
-            {
-              "translate-x-full": !isSideMenuOpen
-            }
-          )
-        }>
+        className={clsx(
+          "fixed p-3 md:p-5 right-0 top-0 w-[200px] sm:w-[250px] md:w-[300px]  h-screen bg-white z-20 shadow-2xl transform transition-all duration-300",
+          {
+            "translate-x-full": !isSideMenuOpen
+          }
+        )}
+      >
+
 
 
         <IoCloseOutline
@@ -67,16 +69,6 @@ export const Sidebar = () => {
           onClick={() => closeMenu()}
         />
 
-
-        {/* Input */}
-        <div className="relative mt-14">
-          <IoSearchOutline size={20} className="absolute top-2 left-2" />
-          <input
-            type="text"
-            placeholder="Buscar"
-            className="w-full bg-gray-50 rounded pl-10 py-1 pr-10 border-b-2 text-xl border-gray-200 focus:outline-none focus:border-blue-500"
-          />
-        </div>
 
         {/* Menú */}
         {

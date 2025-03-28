@@ -30,7 +30,7 @@ export default async function OrdersByIdPage({ params }: Props) {
   const address = order!.OrderAddress;
 
   return (
-    <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
+    <div className="flex justify-center items-center mb-72 px-10 lg:px-0">
       <div className="flex flex-col w-[1000px]">
         <Title title={`Orden #${id.split("-").at(-1)}`} />
 

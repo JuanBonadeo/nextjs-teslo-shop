@@ -53,7 +53,7 @@ export const getPaginatedProductsWithImages = async ({
                 gender: gender
             }
         })
-        const totalPages = Math.ceil(totalCount / take)
+        const totalPages = Math.ceil(totalCount / take) // redondear hacia arriba
 
         return {
             currentPage: page,

@@ -1,11 +1,8 @@
 import { getPaginatedProductsWithImages } from '@/actions/products/product-pagination';
 import { ProductGrid, Title } from '@/components';
 import { Pagintation } from '@/components/ui/pagination/Pagintation';
-import { Category } from '@/interfaces';
-import prisma from '@/lib/prisma';
-import { initialData } from '@/seed/seed';
 import { Gender } from '@prisma/client';
-import { notFound, redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 
 
@@ -40,10 +37,6 @@ export default async function Genders({ params, searchParams }: Props) {
     'kid': 'para niños',
     'unisex': 'para todos'
   }
-
-  // if (gender=== 'kids' ) {
-  //   notFound();
-  // }
 
 
   return (

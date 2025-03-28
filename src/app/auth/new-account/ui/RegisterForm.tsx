@@ -5,7 +5,7 @@ import Link from 'next/link'
 import clsx from "clsx";
 import { registerUser } from '../../../../actions/auth/register';
 import { useState } from "react";
-import { loginUser } from "@/actions/auth/login";
+import { login } from "@/actions/auth/login";
 
 
 interface FormInputs {
@@ -31,7 +31,7 @@ export const RegisterForm = () => {
             setErrorMessage( resp.message )
         }
         
-        await loginUser(email.toLowerCase(), password)
+        await login(email.toLowerCase(), password)
         window.location.replace('/')
     };
 

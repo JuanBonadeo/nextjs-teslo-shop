@@ -11,13 +11,8 @@ import { OrderSummary } from './ui/OrderSummary';
 
 export default function Cart() {
 
-
-  // redirect('/empty');
-
-
-
   return (
-    <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
+    <div className="flex justify-center items-center mb-72 px-10 ">
 
       <div className="flex flex-col w-[1000px]">
 
@@ -38,9 +33,6 @@ export default function Cart() {
             <ProductsIncart/>
            </div>
 
-
-
-
           {/* Checkout - Resumen de orden */ }
           <div className="bg-white rounded-xl shadow-xl p-7 h-fit">
             <h2 className="text-2xl mb-2">Resumen de orden</h2>
@@ -55,17 +47,13 @@ export default function Cart() {
               </Link>
             </div>
 
-
           </div>
-
 
 
         </div>
 
 
-
       </div>
-
 
     </div>
   );

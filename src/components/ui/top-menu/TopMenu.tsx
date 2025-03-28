@@ -14,6 +14,7 @@ export const TopMenu = () => {
   const openSideMenu = useUIStore(state => state.openSideMenu);
   const totalItemsInCart = useCartStore(state => state.getTotalItems())
 
+  // para menjar la rehidratacion de la pagina
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -45,9 +46,7 @@ export const TopMenu = () => {
       {/* Search, Cart, Menu */}
       <div className="flex items-center">
 
-        <Link href="/search" className="mx-2">
-          <IoSearchOutline className="w-5 h-5" />
-        </Link>
+        
 
         <Link
           href={((totalItemsInCart === 0) && loaded) ? '/empty' : '/cart'}
