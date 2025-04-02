@@ -14,14 +14,14 @@ export const deleteProductImage = async( imageId: number, imageUrl: string ) => 
       error: 'No se pueden borrar imagenes de FS'
     }
   }
-
+  // Obtenemos el nombre de la imagen de la url
   const imageName = imageUrl
     .split('/')
     .pop()
     ?.split('.')[0] ?? '';
 
   try {
-
+    // Borrar de Cloudinary y de la base de datos
     await cloudinary.uploader.destroy( imageName );
     const deletedImage = await prisma.productImage.delete({
       where: {
@@ -36,9 +36,6 @@ export const deleteProductImage = async( imageId: number, imageUrl: string ) => 
       }
     })
 
-
-
-    // Revalidar los paths
     revalidatePath(`/admin/products`)
     revalidatePath(`/admin/product/${ deletedImage.product.slug }`);
     revalidatePath(`/product/${ deletedImage.product.slug }`);
@@ -50,8 +47,5 @@ export const deleteProductImage = async( imageId: number, imageUrl: string ) => 
       message: 'No se pudo eliminar la imagen'
     }
   }
-
-
-
 
 }
