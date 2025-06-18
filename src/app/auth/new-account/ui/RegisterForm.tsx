@@ -23,9 +23,9 @@ export const RegisterForm = () => {
 
     const onSubmit: SubmitHandler<FormInputs> = async (data) => {
         const { name, email, password} = data
-        console.log(data)
         
-        // server action
+        
+        
         const resp = await registerUser(name, email, password);
         if( !resp.ok) {
             setErrorMessage( resp.message )
@@ -40,7 +40,7 @@ export const RegisterForm = () => {
     return (
         <form className='flex flex-col'  onSubmit={ handleSubmit( onSubmit )}>
 
-            <label htmlFor="email">Nombre completo</label>
+            <label htmlFor="email" >Nombre completo</label>
             <input
                 className={
                     clsx(
