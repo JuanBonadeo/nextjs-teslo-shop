@@ -1,12 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { IoSearchOutline, IoCartOutline } from 'react-icons/io5';
+import { IoSearchOutline, IoCartOutline, IoLogInOutline } from 'react-icons/io5';
 
 import { titleFont } from '@/config/fonts';
 import { useUIStore } from '@/store';
 import { useCartStore } from '@/store/cart/cart-stores';
 import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 
 export const TopMenu = () => {
@@ -16,6 +17,12 @@ export const TopMenu = () => {
 
   // para menjar la rehidratacion de la pagina
   const [loaded, setLoaded] = useState(false)
+
+  const { data: session } = useSession()
+
+  const isAuthenticated = !!session?.user
+
+
 
   useEffect(() => {
     setLoaded(true)
@@ -44,34 +51,43 @@ export const TopMenu = () => {
 
 
       {/* Search, Cart, Menu */}
-      <div className="flex items-center">
+      {isAuthenticated ?
+        <div className="flex items-center">
 
-        
 
-        <Link
-          href={((totalItemsInCart === 0) && loaded) ? '/empty' : '/cart'}
-          className="mx-2">
-          <div className="relative">
 
-            {
-              (loaded && totalItemsInCart > 0) && (
-                <span className=" fade-in absolute text-xs px-1 rounded-full font-bold -top-2 -right-2 bg-blue-700 text-white">
-                  {totalItemsInCart}
-                </span>
-              )
-            }
+          <Link
+            href={((totalItemsInCart === 0) && loaded) ? '/empty' : '/cart'}
+            className="mx-2">
+            <div className="relative">
 
-            <IoCartOutline className="w-5 h-5" />
-          </div>
+              {
+                (loaded && totalItemsInCart > 0) && (
+                  <span className=" fade-in absolute text-xs px-1 rounded-full font-bold -top-2 -right-2 bg-blue-700 text-white">
+                    {totalItemsInCart}
+                  </span>
+                )
+              }
+
+              <IoCartOutline className="w-5 h-5" />
+            </div>
+          </Link>
+
+          <button
+            onClick={openSideMenu}
+            className="m-2 p-2 rounded-md transition-all hover:bg-gray-100">
+            Menú
+          </button>
+
+        </div>
+        : <Link
+          href="/auth/login"
+          className="flex items-center  p-2 hover:bg-gray-100 rounded transition-all"
+        >
+          <IoLogInOutline size={30} />
+          <span className="ml-3 text-xl">Ingresar</span>
         </Link>
-
-        <button
-          onClick={openSideMenu}
-          className="m-2 p-2 rounded-md transition-all hover:bg-gray-100">
-          Menú
-        </button>
-
-      </div>
+      }
 
 
     </nav>

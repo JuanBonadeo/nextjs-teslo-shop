@@ -8,6 +8,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { IoInformationOutline } from "react-icons/io5";
 import clsx from 'clsx';
 import { authenticate } from '@/actions/auth/login';
+import { time } from 'console';
 
 
 export const LoginForm = () => {
@@ -17,7 +18,11 @@ export const LoginForm = () => {
 
   useEffect(() => {
     if ( state === 'Success' ) {
-      window.location.replace('/');
+      setTimeout(() => {
+        // Redirigir al usuario a la página de inicio después de 1 segundo
+        window.location.replace('/');
+      }, 2000);
+      
     }
 
   },[state]);
@@ -46,11 +51,18 @@ export const LoginForm = () => {
         aria-atomic="true"
       >
         {state === "CredentialsSignin" && (
-          <div className="flex flex-row mb-2">
-            <IoInformationOutline className="h-5 w-5 text-red-500" />
+          <div className="flex flex-row mb-2 justify-center items-center">
+            <IoInformationOutline className="h-10 w-10 text-red-500" />
             <p className="text-sm text-red-500">
               Credenciales no son correctas
             </p>
+          </div>
+        )}
+        
+        {state === "Success" && (
+          <div className="flex flex-row mb-2 justify-center items-center">
+            <IoInformationOutline className="h-10 w-10 text-green-500" />
+            <p className="text-md text-green-500">Ingreso exitoso</p>
           </div>
         )}
       </div>
