@@ -109,7 +109,7 @@ export default async function Products({ searchParams }: Props) {
 
           </tbody>
         </table>
-        <Pagintation totalPages={ 1 } />
+        <Pagintation totalPages={ totalPages } />
       </div>
     </>
   );

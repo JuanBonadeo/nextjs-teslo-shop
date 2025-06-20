@@ -29,7 +29,7 @@ export const TopMenu = () => {
   }, [])
 
   return (
-    <nav className="flex px-5 justify-between items-center w-full">
+    <nav className="flex px-5 py-5 justify-between items-center w-full">
 
       {/* Logo */}
       <div>
@@ -43,9 +43,9 @@ export const TopMenu = () => {
       {/* Center Menu */}
       <div className="hidden sm:block">
 
-        <Link className="m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/gender/men">Hombres</Link>
-        <Link className="m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/gender/women">Mujeres</Link>
-        <Link className="m-2 p-2 rounded-md transition-all hover:bg-gray-100" href="/gender/kid">Niños</Link>
+        <Link className="m-2 p-2 rounded-md transition-all hover:scale-110" href="/gender/men">Hombres</Link>
+        <Link className="m-2 p-2 rounded-md transition-all hover:scale-110" href="/gender/women">Mujeres</Link>
+        <Link className="m-2 p-2 rounded-md transition-all hover:scale-110" href="/gender/kid">Niños</Link>
 
       </div>
 
@@ -53,8 +53,6 @@ export const TopMenu = () => {
       {/* Search, Cart, Menu */}
       {isAuthenticated ?
         <div className="flex items-center">
-
-
 
           <Link
             href={((totalItemsInCart === 0) && loaded) ? '/empty' : '/cart'}
@@ -75,14 +73,14 @@ export const TopMenu = () => {
 
           <button
             onClick={openSideMenu}
-            className="m-2 p-2 rounded-md transition-all hover:bg-gray-100">
+            className="m-2 p-2 rounded-md transition-all hover:scale-110">
             Menú
           </button>
 
         </div>
         : <Link
           href="/auth/login"
-          className="flex items-center  p-2 hover:bg-gray-100 rounded transition-all"
+          className="flex items-center  p-2 hover:scale-110 rounded transition-all"
         >
           <IoLogInOutline size={30} />
           <span className="ml-3 text-xl">Ingresar</span>

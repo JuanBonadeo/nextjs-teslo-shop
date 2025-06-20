@@ -1,4 +1,4 @@
-import { auth } from "@/auth.config";
+import { auth } from "@/actions/auth/auth.config";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 

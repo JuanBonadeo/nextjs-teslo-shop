@@ -31,7 +31,7 @@ export const registerUser = async (name: string, email: string, password: string
         console.log(error)
         return{
             ok: false,
-            message: 'sape'
+            message: 'Error al crear el usuario, es posible que el email ya exista'
         }
     }
 }
